@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* == CSS Footer == */
+.footer {
+  position: fixed;
+  width: 100%;
+  height: 45px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin-bottom: 0px;
+  padding-top: 15px;
+  font-size: 12px;
+  color: var(--light);
+  background-color: var(--dark);
+  text-align: center;
+}
+
+.footer a {
+  color: var(--light);
+  text-decoration: none;
+}
