@@ -16,50 +16,21 @@
   --shadow: 0 10px 25px #666;
 }
 
-/* == Main Tags == */
-html {
-  background-color: var(--theme);
-}
 
-body {
-  margin: 30px 50px;
-  line-height: 20px;
-}
-
+/* == CSS Header == */
 .header {
   color: var(--light);
   background-color: var(--theme);
   text-transform: uppercase;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .divide-line-header {
   background-color: var(--light);
   margin-top: 25px;
   width: 35%;
-}
-
-.weatherbox {
-  color: var(--light);
-  background-color: var(--blue);
-  width: 480px;
-  height: auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: 3px;
-  border-style: solid;
-  border-color: var(--border);
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  box-shadow: var(--shadow);
-}
-
-.weatherbox h3 {
-  text-align: center;
 }
 
 /* == CSS Footer == */
