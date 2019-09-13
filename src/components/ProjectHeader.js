@@ -7,7 +7,7 @@ class ProjectHeader extends React.Component {
             <div className="header">
                <h1>Show Local Weather</h1>
                <hr className="divide-line-header" />
-               <p>A FCC ReactJS Challenge</p>
+               <p>A FCC Take Home Project - React JS</p>
             </div>
          </div>
       );
