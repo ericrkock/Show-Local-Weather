@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import './weather.css';
 
 import ProjectHeader from './components/ProjectHeader';
 import ProjectFooter from './components/ProjectFooter';
@@ -60,10 +59,10 @@ class App extends React.Component {
                     <div className="main">
                         <div className="container">
                             <div className="row">
-                                <div className="col-xs-4 title-container">
+                                <div className="col-xs-5 title-container">
                                     <Titles />
                                 </div>
-                                <div className="col-xs-8 form-container">
+                                <div className="col-xs-7 form-container">
                                     <Form
                                         getWeather={this.getWeather}
                                     />
