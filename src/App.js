@@ -53,9 +53,10 @@ class App extends React.Component {
         this.setState({
           city: data_c.name,
           country: data_c.sys.country,
+          buttonname: "ºF",
           weathericon: "http://openweathermap.org/img/wn/" + data_c.weather[0].icon + "@2x.png",
           temperature: data_c.main.temp + " ºC",
-          humidity: data_c.main.humidity,
+          humidity: data_c.main.humidity + "%",
           windspeed: data_c.wind.speed + " meter/sec",
           description: data_c.weather[0].description,
           error: ""
@@ -81,9 +82,10 @@ class App extends React.Component {
         this.setState({
           city: data_f.name,
           country: data_f.sys.country,
+          buttonname: "ºC",
           weathericon: "http://openweathermap.org/img/wn/" + data_f.weather[0].icon + "@2x.png",
           temperature: data_f.main.temp + " ºF",
-          humidity: data_f.main.humidity,
+          humidity: data_f.main.humidity + "%",
           windspeed: data_f.wind.speed + " miles/hour",
           description: data_f.weather[0].description,
           error: ""
@@ -109,15 +111,9 @@ class App extends React.Component {
 
   changeUnit = () => {
     if (this.state.units == "c") {
-      this.setState({
-        units: "f",
-        buttonname: "ºC"
-      });
+      this.setState({ units: "f" });
     } else {
-      this.setState({
-        units: "c",
-        buttonname: "ºF"
-      });
+      this.setState({ units: "c" });
     }
     this.getWeather();
   }
