@@ -148,11 +148,24 @@ button:active {
 
 /* == CSS Header & Footer == */
 .header {
-  color: var(--txtInput);
-  text-transform: uppercase;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 60px;
+}
+
+.header h1 {
+  color: var(--txtTitle);
+  font-size: 50px;
+  letter-spacing: 2px;
+  line-height: 1.3;
+  font-family: 'Roboto Slab', serif;
+}
+
+.header p {
+  color: var(--txtTitle);
+  font-style: italic;
+  font-weight: 100;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  font-family: "Merriweather", serif;
 }
 
 .divide-line-header {

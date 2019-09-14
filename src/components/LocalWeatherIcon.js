@@ -1,6 +1,6 @@
 import React from 'react';
 
-class WeatherIcon extends React.Component {
+class LocalWeatherIcon extends React.Component {
    render() {
       return (
          <div>
@@ -10,4 +10,4 @@ class WeatherIcon extends React.Component {
    }
 }
 
-export default WeatherIcon;
+export default LocalWeatherIcon;

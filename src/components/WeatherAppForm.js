@@ -1,6 +1,5 @@
 import React from 'react';
-//import ProjectHeader from './ProjectHeader';
-import Titles from './Titles';
+import WeatherAppTitles from './WeatherAppTitles';
 
 class Form extends React.Component {
    onFormSubmit = event => {
@@ -10,7 +9,7 @@ class Form extends React.Component {
    render() {
       return (
          <div>
-            <Titles />
+            <WeatherAppTitles />
             <form onSubmit={this.onFormSubmit}>
                <input 
                   type="text" 
