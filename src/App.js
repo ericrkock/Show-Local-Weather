@@ -2,12 +2,17 @@ import React from "react";
 
 import Titles from "./components/Titles";
 import Form from "./components/Form";
+import Button from './components/Button';
 import Weather from "./components/Weather";
+import ProjectFooter from './components/ProjectFooter';
+
 
 const API_KEY = "78da2c1f826a4d1f5015230c348bd398";
 
 class App extends React.Component {
   state = {
+    inputCity: "",
+    inputCountry: "",
     temperature: undefined,
     city: undefined,
     country: undefined,
@@ -32,6 +37,8 @@ class App extends React.Component {
       });
     } else {
       this.setState({
+        inputCity: "",
+        inputCountry: "",
         temperature: undefined,
         city: undefined,
         country: undefined,
@@ -41,6 +48,20 @@ class App extends React.Component {
       });
     }
   }
+
+  resetImput = () => {
+    this.setState({
+      inputCity: "",
+      inputCountry: "",
+      temperature: undefined,
+      city: undefined,
+      country: undefined,
+      humidity: undefined,
+      description: undefined,
+      error: "Please enter the values."
+    })
+  }
+
   render() {
     return (
       <div>
@@ -52,15 +73,30 @@ class App extends React.Component {
                   <Titles />
                 </div>
                 <div className="col-xs-7 form-container">
-                  <Form getWeather={this.getWeather} />
-                  <Weather 
-                    temperature={this.state.temperature} 
+                  <div>
+                    <Form
+                      inputCity={this.state.inputCity}
+                      inputCountry={this.state.inputCountry}
+                      getWeather={this.getWeather}
+                    />
+                    <Button
+                      name="Get Weather"
+                      clicked={this.getWeather}
+                    />
+                    <Button
+                      name="Reset"
+                      clicked={this.resetInput}
+                    />
+                  </div>
+                  <Weather
+                    temperature={this.state.temperature}
                     humidity={this.state.humidity}
                     city={this.state.city}
                     country={this.state.country}
                     description={this.state.description}
                     error={this.state.error}
                   />
+                  <ProjectFooter />
                 </div>
               </div>
             </div>
