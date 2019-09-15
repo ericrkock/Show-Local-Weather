@@ -10,8 +10,10 @@
   --gradientLeft: #9770a9;
   --gradientRight: #2336f2;
   --border: #396ff4;
-
-  --shadow: 0px 13px 40px -13px rgb(0, 0, 0, 0.75);
+  --borderBottom: solid 2px rgba(255,255,255,0.06);
+  --localBG: rgba(0,0,0,0.35);
+  --localBGtxt: rgba(0,0,0,0.5);
+  --shadow: 0px 13px 40px -13px rgba(0, 0, 0, 0.75);
 }
 
 body {
@@ -115,6 +117,32 @@ button:active {
   outline: none;
 }
 
+.local__info {
+  background-color: var(--localBG);
+  color: var(--txtWeather);
+  width: 100%;
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+.local__key {
+  color: var(--border);
+  background-color: var(--localBGtxt);
+  border-bottom: var(--borderBottom);
+  padding: 0 0 10px 0;
+  font-weight: 900;
+}
+
+.local__key:last-child {
+  border: 0;
+}
+
+.local__value {
+  color: var(--txtInput);
+  font-weight: 200;
+}
+
 .weather__info {
   color: var(--txtWeather);
   width: 60%;
@@ -125,7 +153,7 @@ button:active {
 
 .weather__key {
   color: var(--border);
-  border-bottom: solid 2px rgba(255,255,255,0.06);
+  border-bottom: var(--borderBottom);
   padding: 0 0 10px 0;
   font-weight: 400;
 }

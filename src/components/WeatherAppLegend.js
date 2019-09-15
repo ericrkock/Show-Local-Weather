@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-class Weather extends React.Component {
+class WeatherAppLegend extends React.Component {
    
    render() {
       return (
@@ -35,4 +35,4 @@ class Weather extends React.Component {
    }
 }
 
-export default Weather;
+export default WeatherAppLegend;
