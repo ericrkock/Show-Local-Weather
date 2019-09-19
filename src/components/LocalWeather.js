@@ -10,7 +10,7 @@ class LocalWeather extends React.Component {
 
    constructor(props) {
       super(props);
-      this.state = { 
+      this.state = {
          city: undefined,
          country: undefined,
          units: "c",
@@ -23,7 +23,7 @@ class LocalWeather extends React.Component {
          error: undefined
       }
    }
-  
+
    componentDidMount() {
       this.getWeather();
    }
@@ -39,17 +39,17 @@ class LocalWeather extends React.Component {
    successWeather = (position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      const url_c = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
-      const url_f = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=imperial`;
+      const url_c = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+      const url_f = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=imperial`;
 
       if (this.state.units === "c") {
          axios.get(url_c).then((res) => {
             const data = res.data;
-            this.setState({ 
+            this.setState({
                city: data.name,
                country: data.sys.country,
                buttonname: "ºF",
-               weathericon: "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png",
+               weathericon: "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png",
                temperature: data.main.temp + " ºC",
                humidity: data.main.humidity + "%",
                windspeed: data.wind.speed + " meter/sec",
@@ -59,10 +59,10 @@ class LocalWeather extends React.Component {
       } else {
          axios.get(url_f).then((res) => {
             const data = res.data;
-            this.setState({ 
+            this.setState({
                city: data.name,
                country: data.sys.country,
-               weathericon: "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png",
+               weathericon: "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png",
                buttonname: "ºC",
                temperature: data.main.temp + " ºF",
                humidity: data.main.humidity + " %",
@@ -72,7 +72,7 @@ class LocalWeather extends React.Component {
          });
       };
    }
-  
+
    changeUnit = () => {
       if (this.state.units == "c") {
          this.setState({ units: "f" });
@@ -98,22 +98,22 @@ class LocalWeather extends React.Component {
          error: undefined
       });
    }
-  
+
    render() {
       return (
          <div>
             <ProjectHeader />
             <div className="buttonset">
-               <WeatherAppButton 
+               <WeatherAppButton
                   name={"Check Again"}
                   clicked={this.getWeather}
                />
-               <WeatherAppButton 
+               <WeatherAppButton
                   name={this.state.buttonname}
                   clicked={this.changeUnit}
                />
             </div>
-            <LocalWeatherLegend 
+            <LocalWeatherLegend
                city={this.state.city}
                country={this.state.country}
                weathericon={this.state.weathericon}
@@ -121,7 +121,7 @@ class LocalWeather extends React.Component {
                humidity={this.state.humidity}
                windspeed={this.state.windspeed}
                description={this.state.description}
-               error={this.state.error} 
+               error={this.state.error}
             />
 
          </div>

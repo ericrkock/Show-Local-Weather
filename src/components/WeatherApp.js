@@ -26,32 +26,32 @@ class WeatherApp extends React.Component {
     this.handleCity = this.handleCity.bind(this);
     this.handleCountry = this.handleCountry.bind(this);
   }
-  
+
   handleCity(event) {
     this.setState({ inputCity: event.target.value });
   }
-  
+
   handleCountry(event) {
     this.setState({ inputCountry: event.target.value });
   }
-  
+
   getWeatherApp = async () => {
     const city = this.state.inputCity;
     const country = this.state.inputCountry;
-    const api_call_f = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`);
-    const api_call_c = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
+    const api_call_f = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`);
+    const api_call_c = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
 
     const data_f = await api_call_f.json();
     const data_c = await api_call_c.json();
     //console.log(data_c);
-    
+
     if (city && country) {
       if (this.state.units == "c") {
         this.setState({
           city: data_c.name,
           country: data_c.sys.country,
           buttonname: "ºF",
-          weathericon: "http://openweathermap.org/img/wn/" + data_c.weather[0].icon + "@2x.png",
+          weathericon: "https://openweathermap.org/img/wn/" + data_c.weather[0].icon + "@2x.png",
           temperature: data_c.main.temp + " ºC",
           humidity: data_c.main.humidity + "%",
           windspeed: data_c.wind.speed + " meter/sec",
@@ -59,17 +59,17 @@ class WeatherApp extends React.Component {
           error: ""
         });
       } else {
-          this.setState({
-            city: data_f.name,
-            country: data_f.sys.country,
-            buttonname: "ºC",
-            weathericon: "http://openweathermap.org/img/wn/" + data_f.weather[0].icon + "@2x.png",
-            temperature: data_f.main.temp + " ºF",
-            humidity: data_f.main.humidity + "%",
-            windspeed: data_f.wind.speed + " miles/hour",
-            description: data_f.weather[0].description,
-            error: ""
-          });
+        this.setState({
+          city: data_f.name,
+          country: data_f.sys.country,
+          buttonname: "ºC",
+          weathericon: "https://openweathermap.org/img/wn/" + data_f.weather[0].icon + "@2x.png",
+          temperature: data_f.main.temp + " ºF",
+          humidity: data_f.main.humidity + "%",
+          windspeed: data_f.wind.speed + " miles/hour",
+          description: data_f.weather[0].description,
+          error: ""
+        });
       };
     } else {
       this.setState({
@@ -88,7 +88,7 @@ class WeatherApp extends React.Component {
       });
     };
   }
-  
+
   changeUnit = () => {
     if (this.state.units == "c") {
       this.setState({ units: "f" });
@@ -97,7 +97,7 @@ class WeatherApp extends React.Component {
     }
     this.getWeatherApp();
   }
-  
+
   resetInput = () => {
     this.setState({
       inputCity: "",
@@ -115,42 +115,42 @@ class WeatherApp extends React.Component {
     })
   }
 
-   render() {
-      return (
-         <div>
-            <WeatherAppForm
-               inputCity={this.state.inputCity}
-               inputCountry={this.state.inputCountry}
-               handleCity={this.handleCity}
-               handleCountry={this.handleCountry}
-            />
-            <div className="buttonset">
-               <WeatherAppButton
-                  name={"Get Weather"}
-                  clicked={this.getWeatherApp}
-               />
-               <WeatherAppButton
-                  name={"Reset"}
-                  clicked={this.resetInput}
-               />
-               <WeatherAppButton
-                  name={this.state.buttonname}
-                  clicked={this.changeUnit}
-               />
-            </div>
-            <WeatherAppLegend
-               city={this.state.city}
-               country={this.state.country}
-               weathericon={this.state.weathericon}
-               temperature={this.state.temperature}
-               humidity={this.state.humidity}
-               windspeed={this.state.windspeed}
-               description={this.state.description}
-               error={this.state.error}
-            />
-         </div>
-      );
-   }
+  render() {
+    return (
+      <div>
+        <WeatherAppForm
+          inputCity={this.state.inputCity}
+          inputCountry={this.state.inputCountry}
+          handleCity={this.handleCity}
+          handleCountry={this.handleCountry}
+        />
+        <div className="buttonset">
+          <WeatherAppButton
+            name={"Get Weather"}
+            clicked={this.getWeatherApp}
+          />
+          <WeatherAppButton
+            name={"Reset"}
+            clicked={this.resetInput}
+          />
+          <WeatherAppButton
+            name={this.state.buttonname}
+            clicked={this.changeUnit}
+          />
+        </div>
+        <WeatherAppLegend
+          city={this.state.city}
+          country={this.state.country}
+          weathericon={this.state.weathericon}
+          temperature={this.state.temperature}
+          humidity={this.state.humidity}
+          windspeed={this.state.windspeed}
+          description={this.state.description}
+          error={this.state.error}
+        />
+      </div>
+    );
+  }
 }
 
 export default WeatherApp;
